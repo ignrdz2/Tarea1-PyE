@@ -34,16 +34,11 @@ def simular(cambiar):
 def jugar_interactivo():
     puertas = [1, 2, 3]
     auto = random.choice(puertas)
+    eleccion = int(input("Elegí una puerta (1, 2 o 3): "))
+    
+    if eleccion not in puertas:
+        raise ValueError("la puerta debe ser 1, 2, 3")
 
-    while True:
-        try:
-            eleccion = int(input("Elegí una puerta (1, 2 o 3): "))
-            if eleccion in puertas:
-                break
-            else:
-                print("Debe ser 1, 2 o 3.")
-        except:
-            print("Entrada inválida.")
 
     posibles = [p for p in puertas if p != eleccion and p != auto]
     abierta = random.choice(posibles)
